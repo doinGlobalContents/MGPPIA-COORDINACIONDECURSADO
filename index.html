@@ -1,99 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MGPPIA - Coordinación Cursado</title>
-   <style>
-body {
-    font-family: POPPINS, sans-serif;
-    color: #262626;
-    margin: 0;
-    padding: 0;
-    background: url('AI-Academy-MGPPIA.png') no-repeat center center fixed;
-    background-size: cover;
-}
+    <title>IA Academic Support</title>
+    <style>
+        body {
+            font-family: POPPINS, sans-serif;
+            color: #262626;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background: url('AI-Academy-MGPPIA.png') no-repeat center center fixed;
+            background-size: cover;
+        }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    padding: 7px;
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    height: 100px; 
-}
+        header {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 7px;
+                    background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            height: 100px;
+        }
 
-.logonegro {
-    max-height: 70px;
-    visibility: visible;
-    align: center;
-}
+        .logonegro {
+            max-height: 70px;
+            visibility: visible;
+            text-align: center;
+            align-content: center;
+    
+        }
 
-.logoblanco {
-    max-height: 70px;
-    display: none;
-}
+        .logoblanco {
+            max-height: 70px;
+            display: none;
+            text-align: center;
+        }
 
-/*header img {
-    max-height: 70px;
-}*/
+         .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            max-width: 90%;
+            flex: 1;
+            margin-top: 80px 
+        }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 50px;
-}
+        .chatbot-container {
+            width: 600px;
+            height: 600px;
+            background-color: #f5f5f5;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+        }
 
-h1 {
-    font-size: 2em;
-    text-align: center;
-    margin: 0 0 10px 0;
-    color: #fff;
-}
+        .avatars-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
 
-h2 {
-    font-size: 1.5em;
-    text-align: center;
-        color: #ccc;
-}
+        .avatar-container {
+            width: 600px;
+            height: 600px;
+            background-color: #262626;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 20px;
+        }
 
-.avatar-container {
-    width: 600px;
-    height: 600px;
-    background-color: #262626;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 20px;
-}
+        .avatar-container.active {
+            display: flex;
+        }
 
-.avatar-container.active {
-    display: flex;
-}
-
-footer {
+        .avatar-container h2 {
+            margin: 0;
+            padding: 10px;
+            font-size: 1.5em;
+            border-radius: 10px;
+            color: white;
+        }
+        
+        footer {
     text-align: center;
     font-size: 0.8em;
     color: #f7f0f0;
     margin-top: 20px;
     padding: 10px;
-}
+            }
 
-/* Estilos para pantallas menores a 600px */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-        background-size: 100% 100%; /* Asegura que la imagen no se distorsione */
-    }
-
-    header {
+        @media (max-width: 900px) {
+            header {
         flex-direction: column;
         height: auto; /* Ajusta automáticamente la altura */
         padding: 10px;
@@ -101,65 +114,73 @@ footer {
     }
 
    .logonegro {
-    max-height: 50px;
-    display: none;
+    max-height: 10px;
+    display:none;
     }
-
-   .logoblanco {
+    .logoblanco {
     max-height: 50px;
     display: inline-block;
-    align: center;
+    text-align: center;
     }
+            
+            .button-container {
+                flex-direction: column;
+                margin: 30px
+            }
 
-    /*header img {
-        max-height: 50px; /* Redimensiona el logo
-    }*/
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+            }
 
-    main {
-        padding: 20px;
-    }
+            .chatbot-container
+             {
+                width: 99%;
+                height: 500px;
+            }
 
-    h1 {
-        font-size: 1.5em; /* Reduce el tamaño del texto */
-    }
+            .avatar-container {
+                width: 99%;
+                height: 500px;
+                margin-bottom: 20px;
+            }
+            .avatar-container h2 {
+                font-size: 1em;
+            }
 
-    h2 {
-        font-size: 1em;
-    }
-
-    .avatar-container {
-        width: 100%; /* Asegura que ocupe todo el ancho disponible */
-        height: 500px; /* Ajusta la altura automáticamente */
-        border-radius: 10px;
-    }
-
-    .button-container {
-        flex-direction: column; /* Apila los botones verticalmente */
-        gap: 5px; /* Reduce el espacio entre botones */
-    }
-
-    footer {
+            .avatars-container {
+                width: 100%;
+        }
+             footer {
         font-size: 0.7em; /* Reduce el tamaño de fuente del footer */
         padding: 5px;
     }
-}
-</style>
-
+    }
+    </style>
 </head>
-
 <body>
     <header>
         <img class="logonegro" src="AI-Academy-Logo.png" alt="AI Academy Logo"><br/>
         <img class="logoblanco" src="AI-Academy-logo-white.png" alt="AI Academy Logo">
     </header>
-    <main>
-        <h1>Professional Certificate: Gestión de Proyectos con IA</h1>
+     <div class="main-container">
+        <div class="chatbot-container">
+            <iframe
+                src="https://app.wonderchat.io/chatbot/cm4vl47wz01aeqdrnuw13l3ul"
+                style="border-width: 0px; border-radius: 1px;"
+                width="100%"
+                height="100%">
+            </iframe>
+        </div>
+
+        <div class="avatars-container">
             <div class="avatar-container active" id="avatar1">
-            <h2 style="color:rgb(255, 255, 255);">Coordinación Cursado</h2>
-            <script>
+                <h2>Soporte TIF</h2>
+               <script>
                 !function(window){
                     const host="https://labs.heygen.com",
-                   url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiI1NzllZTRlM2U4MDg0MjNjODQyMWY2MjFj%0D%0ANjk1MWJjNSIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3Yz%0D%0ALzU3OWVlNGUzZTgwODQyM2M4NDIxZjYyMWM2OTUxYmM1L2Z1bGwvMi4yL3ByZXZpZXdfdGFyZ2V0%0D%0ALndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6ImNm%0D%0AMzFkYmQ3MDBhNTRkMzJiNmIxMjYxODNiMDBjYjAzIiwidXNlcm5hbWUiOiI5Mzc0NGZkZTc1NGY0%0D%0AY2ZjOTQzNjA2NTU4Y2M3NjZlZSJ9&inIFrame=1",                    
+                    url=host+"/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiI1NzllZTRlM2U4MDg0MjNjODQyMWY2MjFj%0D%0ANjk1MWJjNSIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3Yz%0D%0ALzU3OWVlNGUzZTgwODQyM2M4NDIxZjYyMWM2OTUxYmM1L2Z1bGwvMi4yL3ByZXZpZXdfdGFyZ2V0%0D%0ALndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6ImNm%0D%0AMzFkYmQ3MDBhNTRkMzJiNmIxMjYxODNiMDBjYjAzIiwidXNlcm5hbWUiOiI5Mzc0NGZkZTc1NGY0%0D%0AY2ZjOTQzNjA2NTU4Y2M3NjZlZSJ9&inIFrame=1",                    
                     clientWidth=document.body.clientWidth,
                     wrapDiv=document.createElement("div");
                     wrapDiv.id="heygen-streaming-embed";
@@ -207,21 +228,13 @@ footer {
                     document.getElementById("avatar1").appendChild(wrapDiv);
                 }(globalThis);
                 </script>
-        </div>       
-    </main>
-        <footer>
+            </div>
+         
+        </div>
+    </div>
+     <footer>
         Este asistente virtual es un prototipo desarrollado en el laboratorio de investigación de AI Academy by doinGlobal.
     </footer>
-    <script>
-        function showAvatar(avatarId) {
-            // Hide all avatar containers
-            document.querySelectorAll('.avatar-container').forEach(container => {
-                container.classList.remove('active');
-            });
-
-            // Show the selected avatar container
-            document.getElementById(avatarId).classList.add('active');
-        }
-    </script>
+ 
 </body>
 </html>
