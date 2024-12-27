@@ -104,6 +104,80 @@
     margin-top: 20px;
     padding: 10px;
             }
+        /* Estilos del Pop-Up */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; 
+   }
+
+#Gif {
+        width: 70%; /* Ocupa todo el ancho del contenedor */
+        height: auto; /* Mantiene la proporción del GIF */
+        border-radius: 8px; /* Redondea las esquinas para que coincidan con el popup */
+        animation: zoomIn 0.5s ease-in-out;
+}
+@keyframes zoomIn {
+    from {
+        transform: scale(0.90);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+            }
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.popup-content h2 {
+    margin-top: 0;
+    color: #99cc04
+}
+
+.popup-content p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.popup .continue-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #99cc04;
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+        .popup .continue-button:hover {
+    background-color: #262626;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
 
         @media (max-width: 900px) {
             header {
@@ -156,6 +230,10 @@
         font-size: 0.7em; /* Reduce el tamaño de fuente del footer */
         padding: 5px;
     }
+            }
+    .popup-content {
+        font-size: 0.8em;
+            }
     }
     </style>
 </head>
@@ -235,6 +313,33 @@
      <footer>
         Este asistente virtual es un prototipo desarrollado en el laboratorio de investigación de AI Academy by doinGlobal.
     </footer>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>¡Importante!</h2>
+            <p><b>Antes de comenzar, tenga en cuenta las siguientes indicaciones:</b></p>
+            <p><b>1. Configure su conversación:</b> Haga clic en <b>"Chat now"</b> y seleccione el idioma <b>"Spanish"</b> para comenzar.</p>
+            <img id="Gif" src="https://i.gifer.com/3OsMY.gif" alt="Ejemplo de Configuración">
+            <p><b>2. Active su micrófono desde el navegador:</b> Para aceptar los permisos, haga clic en <b>"Permitir mientras visitas el sitio"</b>. Este ajuste se realiza por única vez. </p>
+             
+            <button id="continueButton" class="continue-button">Continuar</button>
+        </div>
+    </div>
+    <script>
+        // Mostrar el pop-up al cargar la página
+        window.addEventListener('load', () => {
+            document.getElementById('popup').style.display = 'flex';
+        });
+
+        // Cerrar el pop-up al hacer clic en el botón de cierre o en "Continuar"
+        document.getElementById('closePopup').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+
+        document.getElementById('continueButton').addEventListener('click', () => {
+            document.getElementById('popup').style.display = 'none';
+        });
+    </script>
  
 </body>
 </html>
